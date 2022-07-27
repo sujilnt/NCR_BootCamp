@@ -68,10 +68,20 @@ export default function JoinRewards(){
             <div>
                 {steps[current].content === 2 ? (
                     <Form layout="vertical">
-                        <Form.Item name="password" label="PLease enter a new password" rules={[{ required: true }]}>
+                        <Form.Item
+                            className={styles.passwordItem}
+                            name="password"
+                            label="PLease enter a new password"
+                            rules={[{ required: true }]}
+                        >
                             <Input.Password />
                         </Form.Item>
-                        <Form.Item name="password" label="Confirm password" rules={[{ required: true }]}>
+                        <Form.Item
+                            className={styles.passwordItem}
+                            name="password"
+                            label="Confirm password"
+                            rules={[{ required: true }]}
+                        >
                             <Input.Password />
                         </Form.Item>
                     </Form>
@@ -109,7 +119,6 @@ export default function JoinRewards(){
                     </Button>): null}
                 {current === 3 ? (
                     <Button
-                        onClick={ ()=> setCurrent(current+1)}
                         type="primary"
                         className={styles.button}
                     >
