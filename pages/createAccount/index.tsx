@@ -3,6 +3,8 @@ import {Button, Checkbox, Form, Input, message, Steps,DatePicker} from 'antd';
 import AddBankDetails from "../../components/AddBankDetails";
 import LoyaltyCards from "../../components/LoyaltyCards";
 
+import styles from "./style.module.css";
+
 const { Step } = Steps;
 
 const steps = [
@@ -35,20 +37,29 @@ export default function JoinRewards(){
             </Steps>
             <div>
                 {steps[current].content === 1 ? (
-                    <Form layout="vertical" >
+                    <Form layout="vertical" className={styles.form} requiredMark={false} >
                         <Form.Item name="firstName" label="First Name" rules={[{ required: true }]}>
                             <Input placeholder="Enter your First Name" />
                         </Form.Item>
                         <Form.Item name="lastName" label="Last Name" rules={[{ required: true }]}>
                             <Input placeholder="Enter your Last Name"/>
                         </Form.Item>
-                        <Form.Item name="dateOfBirth" label="Date of Birth" rules={[{ required: true}]}>
+                        <Form.Item
+                            className={styles.item}
+                            name="dateOfBirth"
+                            label="Date of Birth"
+                            rules={[{ required: true}]}
+                        >
                             <DatePicker/>
                         </Form.Item>
                         <Form.Item name="address" label="Address" rules={[{ required: true }]}>
                             <Input placeholder="Enter your Address "/>
                         </Form.Item>
-                        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+                        <Form.Item
+                            name="remember"
+                            className={styles.item}
+                            valuePropName="checked"
+                        >
                             <Checkbox>I agree to the terms </Checkbox>
                         </Form.Item>
                     </Form>
@@ -76,12 +87,36 @@ export default function JoinRewards(){
                     <LoyaltyCards/>
                 ): null}
             </div>
-            <Button onClick={ ()=> setCurrent(current-1)} disabled={current==0} type="primary">
-                Prev
-            </Button>
-            <Button onClick={ ()=> setCurrent(current+1)} type="primary">
-                Next
-            </Button>
+            <div className={styles.buttonContainer}>
+                {current > 0 ? (
+                    <Button
+                        onClick={ ()=> setCurrent(current-1)}
+                        disabled={ current==0 }
+                        type="primary"
+                        className={styles.button}
+                    >
+                        Prev
+                    </Button>
+                ): null }
+                {current < 3 ? (
+                    <Button
+                        onClick={ ()=> setCurrent(current+1)}
+                        disabled={current===3}
+                        type="primary"
+                        className={styles.button}
+                    >
+                        Next
+                    </Button>): null}
+                {current === 3 ? (
+                    <Button
+                        onClick={ ()=> setCurrent(current+1)}
+                        type="primary"
+                        className={styles.button}
+                    >
+                        Continue
+                    </Button>): null}
+            </div>
+
         </div>
     )
 };
