@@ -1,0 +1,50 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #4fbe37;
+}
+
+.heading{
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  overflow: hidden;
+  color: white;
+  font-weight: 700;
+  padding: 0px 15px;
+}
+
+.link{
+    text-transform: capitalize;
+    background: #4fbe37;
+    color: white !important;
+}
+
+.container .menu{
+    display: flex;
+    justify-content: center;
+    flex: 1 400px;
+    background: inherit;
+}
+
+@media screen and (min-width: 740px){
+    .container{
+        justify-content: flex-start;
+    }
+    .menu{
+        justify-content: flex-end;
+    }
+
+    .menu li:last-child{
+        margin-right: 100px;
+    }
+}
+
+
+@media screen and (min-width: 1600px){
+    .menu li:nth-child(3){
+        margin-right: 250px;
+    }
+}

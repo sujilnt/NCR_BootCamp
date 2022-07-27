@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    background: #4fbe37;
+}
+
+.footerContainer{
+    background: #279010;
+    padding: 11px;
+    color: white;
+    text-align: center;
+}
+
+.main{
+    min-height: 98vh;
+    height: 100%;
+    padding: 30px 10px;
+}
