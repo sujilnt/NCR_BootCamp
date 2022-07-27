@@ -35,7 +35,7 @@ export default function JoinRewards(){
                    return( <Step key={item.title} title={item.title} />);
                 })}
             </Steps>
-            <div>
+            <div className={styles.stepContent}>
                 {steps[current].content === 1 ? (
                     <Form layout="vertical" className={styles.form} requiredMark={false} >
                         <Form.Item name="firstName" label="First Name" rules={[{ required: true }]}>
@@ -67,7 +67,15 @@ export default function JoinRewards(){
             </div>
             <div>
                 {steps[current].content === 2 ? (
-                    <Form layout="vertical">
+                    <Form layout="vertical" requiredMark={false}>
+                        <Form.Item
+                            className={styles.passwordItem}
+                            name="email"
+                            label="Email"
+                            rules={[{ required: true }]}
+                        >
+                            <Input placeholder="Enter your email address" />
+                        </Form.Item>
                         <Form.Item
                             className={styles.passwordItem}
                             name="password"
