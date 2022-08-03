@@ -21,7 +21,7 @@ const dummyData:CardDetails[] = [
 
 export default function(){
     const [dataSource, setDataSource] = useState(dummyData);
-    const [formData, setFormData] = useState([]);
+    const [formData, setFormData] = useState<FieldData[]>([]);
 
     const columns = [
         {
@@ -46,7 +46,7 @@ export default function(){
         {
             title: "Action",
             dataIndex: "action",
-            render(_, {cardNumber}:CardDetails) {
+            render(_:any, {cardNumber}:CardDetails) {
                 return (
                     <Popconfirm title="Are you sure？"
                                 onConfirm={()=>{
@@ -69,7 +69,7 @@ export default function(){
                     requiredMark={false}
                     className={styles.form}
                     onFieldsChange={(_, allFields)=>{
-                          setFormData(allFields);
+                          setFormData(allFields );
                       }} >
                     <Form.Item
                         className={styles.item}
